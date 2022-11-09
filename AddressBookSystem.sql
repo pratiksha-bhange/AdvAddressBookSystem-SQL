@@ -24,3 +24,6 @@ select * from AddressBook_Table;
 --UC5 - Delete existing contact person using name.
 delete from AddressBook_Table where FirstName = 'Pooja' and LastName = 'hudge';
 select * from AddressBook_Table;
+
+--UC6 - Retrieve person belonging to a city or state from AddressBook.
+select * from AddressBook_Table where City = 'Latur' or State = 'Maharashtra';
