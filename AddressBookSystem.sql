@@ -42,3 +42,8 @@ select * from AddressBook_Table;
 update AddressBook_Table set AddressBookName = 'family address book', AddressBookType = 'Family' where FirstName = 'Pratiksha';
 update AddressBook_Table set AddressBookName = 'friends address book', AddressBookType = 'Friends' where FirstName = 'Priya';
 update AddressBook_Table set AddressBookName = 'profession address book', AddressBookType = 'Profession' where FirstName = 'gouri';
+
+--UC10 - Get number of contact persons i,e count by type.
+select count(AddressBookType) as 'NumberOfContacts' from AddressBook_Table where AddressBookType='Family';
+select count(AddressBookType) as 'NumberOfContacts' from AddressBook_Table where AddressBookType='Friends';
+select count(AddressBookType) as 'NumberOfContacts' from AddressBook_Table where AddressBookType='Profession';
