@@ -54,3 +54,42 @@ values
 ('Virat', 'Kohli', 'RCB', 'Bangalore', 'Karnataka', 560040, 1231231235, 'virat@gmail.com','friends address book', 'Friends'),
 ('Virat', 'Kohli', 'RCB', 'Bangalore', 'Karnataka', 560040, 1231231235, 'virat@gmail.com', 'family address book', 'Family');
 select * from AddressBook_Table;
+
+--UC12 - Creating different entities.
+--creating table of typeofcontacts
+create table TypesOfContacts
+(
+typeid int primary key ,
+typename varchar(50) not null);
+--inserting data into type of contacts
+insert into Typesofcontacts
+values
+(1,'Family'),
+(2,'Friends'),
+(3,'Business');
+
+alter table AddressBook_Table
+add contactid int primary key identity(1,1);
+select *from AddressBook_Table;
+
+--Creating table of address book names
+create table AddressBookNames
+(addressBookId int primary key identity(1,1),
+addressBookName varchar(50) not null );
+--inserting values to addressbook table
+insert into AddressBooknames values ('S'),('P'),('H');
+select * from AddressBookNames;
+
+--creating table address book names mapper which will contain contact id and address book names id
+create table addressbookMapping
+(contactid int not null, addressbookid int not null);
+--inserting data into address book mapper id
+insert into addressbookMapping values (1,1),(2,1),(3,2);
+select * from addressbookMapping;
+
+select a.firstname, a.phoneNumber, a.city, a.state, a.eMail, b.addressbookname, b.addressBookId
+from AddressBook_Table a
+join addressbookMapping d
+on a.contactid = d.contactId
+join AddressBookNames b
+on b.addressBookId= d.addressbookId
