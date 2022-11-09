@@ -31,3 +31,6 @@ select * from AddressBook_Table where City = 'Latur' or State = 'Maharashtra';
 --UC7 - Size of AddressBook by city and state 
 select COUNT(*) as StateCount, State from AddressBook_Table group by State;
 select COUNT(*) as CityCount, City from AddressBook_Table group by City;
+
+--UC8 - Get Sorted entries alphabeticaly by person's name for a given city.
+select * from AddressBook_Table where City = 'Latur' order by FirstName,LastName;
