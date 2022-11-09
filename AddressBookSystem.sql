@@ -15,3 +15,8 @@ values
 
 -- for Displaying adressbook
 select * from AddressBook_Table;
+
+--UC4 - Edit existing contact person using name
+update AddressBook_Table set City = 'Beed' where FirstName = 'gouri' and LastName = 'shete';
+update AddressBook_Table set State = 'Goa' where FirstName = 'Pooja' and LastName = 'hudge';
+select * from AddressBook_Table;
